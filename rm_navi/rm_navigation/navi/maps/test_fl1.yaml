@@ -1,0 +1,6 @@
+image: test_fl1.pgm
+resolution: 0.1
+origin: [-27.7519, -14.9631, 0.0]
+occupied_thresh: 0.5
+free_thresh: 0.2
+negate: 0

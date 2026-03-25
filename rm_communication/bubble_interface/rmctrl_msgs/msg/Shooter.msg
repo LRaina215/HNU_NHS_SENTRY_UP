@@ -1,0 +1,3 @@
+int8 is_shoot
+int32 bullet_vel
+int16 remain_bullet

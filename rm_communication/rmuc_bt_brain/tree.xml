@@ -1,0 +1,32 @@
+<root main_tree_to_execute="MainTree">
+    <BehaviorTree ID="MainTree">
+        <Fallback name="SentryTactics">
+
+            <Sequence name="HumanOverrideBranch">
+                <Condition ID="IsHumanOverride"/>
+                <Action ID="SendCommand" tactic="OVERRIDE_IDLE"/>
+            </Sequence>
+
+            <Sequence name="DefendBranch">
+                <Condition ID="IsLowHP"/>
+                <Action ID="SendCommand" tactic="DEFEND"/>
+            </Sequence>
+
+            <Sequence name="EngageBranch">
+                <Condition ID="HasEnemy"/>
+                <Fallback name="CombatDistanceCheck">
+                    <Sequence name="CloseCombat">
+                        <Condition ID="IsEnemyClose"/>
+                        <Action ID="SendCommand" tactic="MELEE"/>
+                    </Sequence>
+                    <Sequence name="LongRangePursuit">
+                        <Action ID="SendCommand" tactic="PURSUIT"/>
+                    </Sequence>
+                </Fallback>
+            </Sequence>
+
+            <Action ID="SendCommand" tactic="PATROL"/>
+
+        </Fallback>
+    </BehaviorTree>
+</root>

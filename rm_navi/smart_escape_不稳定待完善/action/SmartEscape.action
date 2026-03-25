@@ -1,0 +1,10 @@
+# Goal
+---
+# Result
+bool success
+string message
+geometry_msgs/PoseStamped escape_pose
+---
+# Feedback
+string status
+float32 progress

@@ -1,0 +1,50 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+      
+      <PipelineSequence name="NavigateWithReplanning">
+        <RateController hz="1.0">
+          <RecoveryNode number_of_retries="1" name="ComputePathToPose">
+            <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+            <ReactiveFallback name="ComputePathToPoseRecoveryFallback">
+              <GoalUpdated/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Context" service_name="global_costmap/clear_entirely_global_costmap"/>
+            </ReactiveFallback>
+          </RecoveryNode>
+        </RateController>
+        <FollowPath path="{path}" controller_id="FollowPath"/>
+      </PipelineSequence>
+      
+      <ReactiveFallback name="RecoveryFallback">
+        <GoalUpdated/>
+        
+        <Sequence name="SmartEscapeSequence">
+            <SmartEscape name="SmartEscapeAction" 
+                         server_name="smart_escape" 
+                         server_timeout="15.0" 
+                         escape_pose="{escape_pose}"
+                         result_message="{escape_result}"/>
+            
+            <ClearEntireCostmap name="ClearLocalBeforeNav" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <ClearEntireCostmap name="ClearGlobalBeforeNav" service_name="global_costmap/clear_entirely_global_costmap"/>
+            
+            <Wait wait_duration="0.5"/>
+        </Sequence>
+      </ReactiveFallback>
+    </RecoveryNode>
+  </BehaviorTree>
+
+  <TreeNodesModel>
+    <Action ID="SmartEscape">
+      <input_port name="server_name" default="smart_escape">Action server name</input_port>
+      <input_port name="server_timeout" default="15.0">Server timeout in seconds</input_port>
+      <output_port name="escape_pose">Computed escape pose</output_port>
+      <output_port name="result_message">Result message</output_port>
+    </Action>
+    <Action ID="ComputePathToPose">
+      <input_port name="goal">Destination to plan to</input_port>
+      <input_port name="path">Path created by ComputePathToPose</input_port>
+      <input_port name="planner_id"/>
+    </Action>
+  </TreeNodesModel>
+</root>

@@ -1,0 +1,37 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/lraina/shaobing_up/install/smart_escape/include/**",
+        "/home/lraina/shaobing_up/install/rmctrl_msgs/include/**",
+        "/home/lraina/shaobing_up/install/rm_interfaces/include/**",
+        "/home/lraina/shaobing_up/install/pointcloud_to_laserscan/include/**",
+        "/home/lraina/shaobing_up/install/icp_registration/include/**",
+        "/home/lraina/shaobing_up/install/livox_ros_driver2/include/**",
+        "/home/lraina/shaobing_up/install/linefit_ground_segmentation/include/**",
+        "/home/lraina/shaobing_up/install/game_msgs/include/**",
+        "/home/lraina/shaobing_up/install/fake_vel_transform/include/**",
+        "/home/lraina/shaobing_up/install/bboxes_ex_msgs/include/**",
+        "/opt/ros/galactic/include/**",
+        "/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain/include/**",
+        "/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform/include/**",
+        "/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration/include/**",
+        "/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio/include/**",
+        "/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation/include/**",
+        "/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan/include/**",
+        "/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

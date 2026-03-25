@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <model name="rmul">
+      <pose>2.95 0.45 0 0 0 0</pose>
+      <static>true</static>
+      <link name="up">
+        <collision name='collision1'>
+      	  <geometry>
+            <mesh><uri>/home/rm/ros2_ws/install/rm_description/share/rm_description/world/rmul2023.dae</uri></mesh>
+          </geometry>
+      	</collision>
+
+
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>/home/rm/ros2_ws/install/rm_description/share/rm_description/world/rmul2023.dae</uri></mesh>
+          </geometry>
+        </visual>
+
+
+      </link>
+    </model>
+  </world>
+</sdf>

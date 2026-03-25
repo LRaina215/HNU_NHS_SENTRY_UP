@@ -1,0 +1,26 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/lraina/shaobing_up/install/smart_escape/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/rmctrl_msgs/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/rm_lidar_filter/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/bubble_protocol/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/rm_interfaces/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/livox_ros_driver2/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/game_msgs/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/bubble_decision/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/bboxes_ex_msgs/lib/python3.8/site-packages",
+        "/opt/ros/galactic/lib/python3.8/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/lraina/shaobing_up/install/smart_escape/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/rmctrl_msgs/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/rm_lidar_filter/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/bubble_protocol/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/rm_interfaces/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/livox_ros_driver2/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/game_msgs/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/bubble_decision/lib/python3.8/site-packages",
+        "/home/lraina/shaobing_up/install/bboxes_ex_msgs/lib/python3.8/site-packages",
+        "/opt/ros/galactic/lib/python3.8/site-packages"
+    ]
+}

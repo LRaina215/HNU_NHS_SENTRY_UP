@@ -1,0 +1,49 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+      
+      <PipelineSequence name="NavigateWithReplanning">
+        <RateController hz="3.0">
+          <RecoveryNode number_of_retries="1" name="ComputePathToPose">
+            <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+            <ReactiveFallback name="ComputePathToPoseRecoveryFallback">
+              <GoalUpdated/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Context" service_name="global_costmap/clear_entirely_global_costmap"/>
+            </ReactiveFallback>
+          </RecoveryNode>
+        </RateController>
+        <FollowPath path="{path}" controller_id="FollowPath"/>
+      </PipelineSequence>
+      
+      <ReactiveFallback name="RecoveryFallback">
+        <GoalUpdated/>
+        
+        <RoundRobin name="RecoveryActions">
+          
+          <Sequence name="SoftRecovery">
+            <ClearEntireCostmap name="ClearLocalSoft" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <ClearEntireCostmap name="ClearGlobalSoft" service_name="global_costmap/clear_entirely_global_costmap"/>
+            <Wait wait_duration="0.1"/>
+          </Sequence>
+
+          <Sequence name="HardRecovery">
+            <BackUp backup_dist="0.25" backup_speed="0.6"/>
+            <ClearEntireCostmap name="ClearLocalHard" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <ClearEntireCostmap name="ClearGlobalHard" service_name="global_costmap/clear_entirely_global_costmap"/>
+            <Wait wait_duration="0.1"/>
+          </Sequence>
+          
+        </RoundRobin>
+        
+      </ReactiveFallback>
+    </RecoveryNode>
+  </BehaviorTree>
+
+  <TreeNodesModel>
+    <Action ID="ComputePathToPose">
+      <input_port name="goal">Destination to plan to</input_port>
+      <input_port name="path">Path created by ComputePathToPose</input_port>
+      <input_port name="planner_id"/>
+    </Action>
+  </TreeNodesModel>
+</root>

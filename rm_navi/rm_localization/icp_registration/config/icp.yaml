@@ -1,0 +1,16 @@
+/icp_registration:
+  ros__parameters:
+    use_sim_time: false 
+    rough_leaf_size: 0.4
+    refine_leaf_size: 0.1
+    # 该值会在 launch 阶段被 icp.launch.py 动态重写为当前安装空间内的真实绝对路径。
+    pcd_path: "scans.pcd"
+    map_frame_id: "map"
+    odom_frame_id: "odom"
+    laser_frame_id: "livox_frame"
+    pointcloud_topic: "/livox/lidar"
+    thresh: 0.1
+    xy_offset: 0.2
+    yaw_offset: 30.0
+    yaw_resolution: 10.0
+    initial_pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] # x,y,z,roll,pitch,yaw

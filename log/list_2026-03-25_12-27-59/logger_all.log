@@ -1,0 +1,356 @@
+[0.274s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '--base-paths', '/home/lraina/shaobing_up/src']
+[0.274s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], base_paths=['/home/lraina/shaobing_up/src'], build_base='build', ignore_user_meta=False, log_base=None, log_level=None, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x7fd751f2fd30>>, metas=['./colcon.meta'], names_only=False, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, paths=None, paths_only=False, topological_graph=False, topological_graph_density=False, topological_graph_dot=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, topological_graph_legend=False, topological_order=False, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x7fd751f2fd30>, verb_name='list', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fd751e86970>)
+[0.448s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.448s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.448s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.448s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.448s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.448s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/lraina/shaobing_up/src'
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extensions ['ignore', 'ignore_ament_install']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extension 'ignore'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extension 'ignore_ament_install'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extensions ['colcon_pkg']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extension 'colcon_pkg'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extensions ['colcon_meta']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extension 'colcon_meta'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extensions ['ros']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extension 'ros'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extensions ['cmake', 'python']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extension 'cmake'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extension 'python'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extensions ['python_setup_py']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src) by extension 'python_setup_py'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/log) by extensions ['ignore', 'ignore_ament_install']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/log) by extension 'ignore'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/log) ignored
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extensions ['ignore', 'ignore_ament_install']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extension 'ignore'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extension 'ignore_ament_install'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extensions ['colcon_pkg']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extension 'colcon_pkg'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extensions ['colcon_meta']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extension 'colcon_meta'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extensions ['ros']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extension 'ros'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extensions ['cmake', 'python']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extension 'cmake'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extension 'python'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extensions ['python_setup_py']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication) by extension 'python_setup_py'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_decision) by extensions ['ignore', 'ignore_ament_install']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_decision) by extension 'ignore'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_decision) by extension 'ignore_ament_install'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_decision) by extensions ['colcon_pkg']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_decision) by extension 'colcon_pkg'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_decision) by extensions ['colcon_meta']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_decision) by extension 'colcon_meta'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_decision) by extensions ['ros']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_decision) by extension 'ros'
+[0.463s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_communication/bubble_decision' with type 'ros.ament_python' and name 'bubble_decision'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extensions ['ignore', 'ignore_ament_install']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extension 'ignore'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extension 'ignore_ament_install'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extensions ['colcon_pkg']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extension 'colcon_pkg'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extensions ['colcon_meta']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extension 'colcon_meta'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extensions ['ros']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extension 'ros'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extensions ['cmake', 'python']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extension 'cmake'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extension 'python'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extensions ['python_setup_py']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface) by extension 'python_setup_py'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs) by extension 'ignore'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs) by extension 'ignore_ament_install'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs) by extensions ['colcon_pkg']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs) by extension 'colcon_pkg'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs) by extensions ['colcon_meta']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs) by extension 'colcon_meta'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs) by extensions ['ros']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs) by extension 'ros'
+[0.465s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_communication/bubble_interface/bboxes_ex_msgs' with type 'ros.ament_cmake' and name 'bboxes_ex_msgs'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs) by extension 'ignore'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs) by extension 'ignore_ament_install'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs) by extensions ['colcon_pkg']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs) by extension 'colcon_pkg'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs) by extensions ['colcon_meta']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs) by extension 'colcon_meta'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs) by extensions ['ros']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs) by extension 'ros'
+[0.466s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_communication/bubble_interface/game_msgs' with type 'ros.ament_cmake' and name 'game_msgs'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs) by extension 'ignore'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs) by extension 'ignore_ament_install'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs) by extensions ['colcon_pkg']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs) by extension 'colcon_pkg'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs) by extensions ['colcon_meta']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs) by extension 'colcon_meta'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs) by extensions ['ros']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs) by extension 'ros'
+[0.468s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_communication/bubble_interface/rmctrl_msgs' with type 'ros.ament_cmake' and name 'rmctrl_msgs'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extensions ['ignore', 'ignore_ament_install']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extension 'ignore'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extension 'ignore_ament_install'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extensions ['colcon_pkg']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extension 'colcon_pkg'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extensions ['colcon_meta']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extension 'colcon_meta'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extensions ['ros']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extension 'ros'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extensions ['cmake', 'python']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extension 'cmake'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extension 'python'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extensions ['python_setup_py']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_interface/script) by extension 'python_setup_py'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_protocol) by extensions ['ignore', 'ignore_ament_install']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_protocol) by extension 'ignore'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_protocol) by extension 'ignore_ament_install'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_protocol) by extensions ['colcon_pkg']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_protocol) by extension 'colcon_pkg'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_protocol) by extensions ['colcon_meta']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_protocol) by extension 'colcon_meta'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_protocol) by extensions ['ros']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/bubble_protocol) by extension 'ros'
+[0.469s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_communication/bubble_protocol' with type 'ros.ament_python' and name 'bubble_protocol'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain) by extensions ['ignore', 'ignore_ament_install']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain) by extension 'ignore'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain) by extension 'ignore_ament_install'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain) by extensions ['colcon_pkg']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain) by extension 'colcon_pkg'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain) by extensions ['colcon_meta']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain) by extension 'colcon_meta'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain) by extensions ['ros']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain) by extension 'ros'
+[0.470s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_communication/rmuc_bt_brain' with type 'ros.ament_cmake' and name 'rmuc_bt_brain'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_description) by extensions ['ignore', 'ignore_ament_install']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_description) by extension 'ignore'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_description) by extension 'ignore_ament_install'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_description) by extensions ['colcon_pkg']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_description) by extension 'colcon_pkg'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_description) by extensions ['colcon_meta']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_description) by extension 'colcon_meta'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_description) by extensions ['ros']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_description) by extension 'ros'
+[0.471s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_description' with type 'ros.ament_cmake' and name 'rm_description'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extensions ['ignore', 'ignore_ament_install']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extension 'ignore'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extension 'ignore_ament_install'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extensions ['colcon_pkg']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extension 'colcon_pkg'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extensions ['colcon_meta']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extension 'colcon_meta'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extensions ['ros']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extension 'ros'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extensions ['cmake', 'python']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extension 'cmake'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extension 'python'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extensions ['python_setup_py']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi) by extension 'python_setup_py'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform) by extensions ['ignore', 'ignore_ament_install']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform) by extension 'ignore'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform) by extension 'ignore_ament_install'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform) by extensions ['colcon_pkg']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform) by extension 'colcon_pkg'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform) by extensions ['colcon_meta']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform) by extension 'colcon_meta'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform) by extensions ['ros']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform) by extension 'ros'
+[0.473s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/fake_vel_transform' with type 'ros.ament_cmake' and name 'fake_vel_transform'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extensions ['ignore', 'ignore_ament_install']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extension 'ignore'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extension 'ignore_ament_install'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extensions ['colcon_pkg']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extension 'colcon_pkg'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extensions ['colcon_meta']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extension 'colcon_meta'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extensions ['ros']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extension 'ros'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extensions ['cmake', 'python']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extension 'cmake'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extension 'python'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extensions ['python_setup_py']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver) by extension 'python_setup_py'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2) by extensions ['ignore', 'ignore_ament_install']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2) by extension 'ignore'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2) by extension 'ignore_ament_install'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2) by extensions ['colcon_pkg']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2) by extension 'colcon_pkg'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2) by extensions ['colcon_meta']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2) by extension 'colcon_meta'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2) by extensions ['ros']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2) by extension 'ros'
+[0.476s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_driver/livox_ros_driver2' with type 'ros.ament_cmake' and name 'livox_ros_driver2'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter) by extensions ['ignore', 'ignore_ament_install']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter) by extension 'ignore'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter) by extension 'ignore_ament_install'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter) by extensions ['colcon_pkg']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter) by extension 'colcon_pkg'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter) by extensions ['colcon_meta']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter) by extension 'colcon_meta'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter) by extensions ['ros']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter) by extension 'ros'
+[0.477s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_lidar_filter' with type 'ros.ament_python' and name 'rm_lidar_filter'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extensions ['ignore', 'ignore_ament_install']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extension 'ignore'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extension 'ignore_ament_install'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extensions ['colcon_pkg']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extension 'colcon_pkg'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extensions ['colcon_meta']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extension 'colcon_meta'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extensions ['ros']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extension 'ros'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extensions ['cmake', 'python']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extension 'cmake'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extension 'python'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extensions ['python_setup_py']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization) by extension 'python_setup_py'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration) by extensions ['ignore', 'ignore_ament_install']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration) by extension 'ignore'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration) by extension 'ignore_ament_install'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration) by extensions ['colcon_pkg']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration) by extension 'colcon_pkg'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration) by extensions ['colcon_meta']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration) by extension 'colcon_meta'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration) by extensions ['ros']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration) by extension 'ros'
+[0.479s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_localization/icp_registration' with type 'ros.ament_cmake' and name 'icp_registration'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm) by extensions ['ignore', 'ignore_ament_install']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm) by extension 'ignore'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm) by extension 'ignore_ament_install'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm) by extensions ['colcon_pkg']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm) by extension 'colcon_pkg'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm) by extensions ['colcon_meta']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm) by extension 'colcon_meta'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm) by extensions ['ros']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm) by extension 'ros'
+[0.480s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_localization/pcd2pgm' with type 'ros.ament_cmake' and name 'pcd2pgm'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio) by extensions ['ignore', 'ignore_ament_install']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio) by extension 'ignore'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio) by extension 'ignore_ament_install'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio) by extensions ['colcon_pkg']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio) by extension 'colcon_pkg'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio) by extensions ['colcon_meta']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio) by extension 'colcon_meta'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio) by extensions ['ros']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio) by extension 'ros'
+[0.482s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_localization/point_lio' with type 'ros.ament_cmake' and name 'point_lio'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extensions ['ignore', 'ignore_ament_install']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extension 'ignore'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extension 'ignore_ament_install'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extensions ['colcon_pkg']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extension 'colcon_pkg'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extensions ['colcon_meta']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extension 'colcon_meta'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extensions ['ros']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extension 'ros'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extensions ['cmake', 'python']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extension 'cmake'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extension 'python'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extensions ['python_setup_py']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation) by extension 'python_setup_py'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi) by extensions ['ignore', 'ignore_ament_install']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi) by extension 'ignore'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi) by extension 'ignore_ament_install'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi) by extensions ['colcon_pkg']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi) by extension 'colcon_pkg'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi) by extensions ['colcon_meta']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi) by extension 'colcon_meta'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi) by extensions ['ros']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi) by extension 'ros'
+[0.483s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_navigation/navi' with type 'ros.ament_cmake' and name 'navi'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extensions ['ignore', 'ignore_ament_install']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extension 'ignore'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extension 'ignore_ament_install'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extensions ['colcon_pkg']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extension 'colcon_pkg'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extensions ['colcon_meta']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extension 'colcon_meta'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extensions ['ros']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extension 'ros'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extensions ['cmake', 'python']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extension 'cmake'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extension 'python'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extensions ['python_setup_py']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception) by extension 'python_setup_py'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extension 'ignore'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extension 'ignore_ament_install'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extensions ['colcon_pkg']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extension 'colcon_pkg'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extensions ['colcon_meta']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extension 'colcon_meta'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extensions ['ros']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extension 'ros'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extensions ['cmake', 'python']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extension 'cmake'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extension 'python'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extensions ['python_setup_py']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2) by extension 'python_setup_py'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extensions ['ignore', 'ignore_ament_install']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extension 'ignore'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extension 'ignore_ament_install'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extensions ['colcon_pkg']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extension 'colcon_pkg'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extensions ['colcon_meta']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extension 'colcon_meta'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extensions ['ros']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extension 'ros'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extensions ['cmake', 'python']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extension 'cmake'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extension 'python'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extensions ['python_setup_py']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/doc) by extension 'python_setup_py'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation) by extensions ['ignore', 'ignore_ament_install']
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation) by extension 'ignore'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation) by extension 'ignore_ament_install'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation) by extensions ['colcon_pkg']
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation) by extension 'colcon_pkg'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation) by extensions ['colcon_meta']
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation) by extension 'colcon_meta'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation) by extensions ['ros']
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation) by extension 'ros'
+[0.486s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation' with type 'ros.ament_cmake' and name 'linefit_ground_segmentation'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros) by extensions ['ignore', 'ignore_ament_install']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros) by extension 'ignore'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros) by extension 'ignore_ament_install'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros) by extensions ['colcon_pkg']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros) by extension 'colcon_pkg'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros) by extensions ['colcon_meta']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros) by extension 'colcon_meta'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros) by extensions ['ros']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros) by extension 'ros'
+[0.488s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_perception/linefit_ground_segementation_ros2/linefit_ground_segmentation_ros' with type 'ros.ament_cmake' and name 'linefit_ground_segmentation_ros'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan) by extensions ['ignore', 'ignore_ament_install']
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan) by extension 'ignore'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan) by extension 'ignore_ament_install'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan) by extensions ['colcon_pkg']
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan) by extension 'colcon_pkg'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan) by extensions ['colcon_meta']
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan) by extension 'colcon_meta'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan) by extensions ['ros']
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan) by extension 'ros'
+[0.490s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_perception/pointcloud_to_laserscan' with type 'ros.ament_cmake' and name 'pointcloud_to_laserscan'
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis) by extensions ['ignore', 'ignore_ament_install']
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis) by extension 'ignore'
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis) by extension 'ignore_ament_install'
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis) by extensions ['colcon_pkg']
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis) by extension 'colcon_pkg'
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis) by extensions ['colcon_meta']
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis) by extension 'colcon_meta'
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis) by extensions ['ros']
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis) by extension 'ros'
+[0.492s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/rm_perception/terrain_analysis' with type 'ros.ament_cmake' and name 'terrain_analysis'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善) by extensions ['ignore', 'ignore_ament_install']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善) by extension 'ignore'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善) by extension 'ignore_ament_install'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善) by extensions ['colcon_pkg']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善) by extension 'colcon_pkg'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善) by extensions ['colcon_meta']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善) by extension 'colcon_meta'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善) by extensions ['ros']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善) by extension 'ros'
+[0.494s] DEBUG:colcon.colcon_core.package_identification:Package '/home/lraina/shaobing_up/src/rm_navi/smart_escape_不稳定待完善' with type 'ros.ament_cmake' and name 'smart_escape'
+[0.494s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults

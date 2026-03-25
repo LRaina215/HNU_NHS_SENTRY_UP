@@ -1,0 +1,6 @@
+image: nine.pgm
+resolution: 0.1
+origin: [-32.5271, -10.1224, 0.0]
+occupied_thresh: 0.5
+free_thresh: 0.2
+negate: 0

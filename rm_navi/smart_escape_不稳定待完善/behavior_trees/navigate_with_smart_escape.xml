@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="MainTree">
+  <!--
+    智能脱困导航行为树
+    
+    基于四川大学火锅战队2025年哨兵导航算法
+    核心逻辑：当机器人被卡住时，分析代价地图找到无障碍区域的质心，
+    然后朝该方向移动实现智能脱困。
+    
+    行为树结构：
+    1. 尝试正常导航到目标点
+    2. 如果导航失败（被卡住），触发智能脱困
+    3. 脱困成功后，重新尝试导航
+    4. 如果脱困失败，尝试传统的恢复行为（旋转、后退）
+  -->
+
+  <BehaviorTree ID="MainTree">
+    <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+      <!-- 主导航序列 -->
+      <Sequence name="NavigateWithReplanning">
+        <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+        <RecoveryNode number_of_retries="1" name="FollowPathRecovery">
+          <FollowPath path="{path}" controller_id="FollowPath"/>
+          <ClearEntireCostmap name="ClearLocalCostmap-Context" service_name="local_costmap/clear_entirely_local_costmap"/>
+        </RecoveryNode>
+      </Sequence>
+      
+      <!-- 恢复行为序列 - 包含智能脱困 -->
+      <SequenceStar name="RecoveryActions">
+        <!-- 首先尝试智能脱困（川大算法） -->
+        <SmartEscape 
+          name="SmartEscapeAction"
+          server_name="smart_escape"
+          server_timeout="10000"
+          escape_pose="{escape_pose}"
+          result_message="{escape_result_msg}"/>
+        
+        <!-- 如果智能脱困成功，移动到脱困目标点 -->
+        <Sequence name="MoveToEscapePose">
+          <ComputePathToPose goal="{escape_pose}" path="{escape_path}" planner_id="GridBased"/>
+          <FollowPath path="{escape_path}" controller_id="FollowPath"/>
+        </Sequence>
+      </SequenceStar>
+    </RecoveryNode>
+  </BehaviorTree>
+
+  <!-- 更完整的导航行为树（带更多恢复选项） -->
+  <BehaviorTree ID="NavigateWithFullRecovery">
+    <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+      <Sequence name="NavigateSequence">
+        <ControllerSelector selected_controller="{selected_controller}" default_controller="FollowPath" topic_name="controller_selector"/>
+        <PlannerSelector selected_planner="{selected_planner}" default_planner="GridBased" topic_name="planner_selector"/>
+        <ComputePathToPose goal="{goal}" path="{path}" planner_id="{selected_planner}" error_code_id="{compute_path_error_code}"/>
+        <RecoveryNode number_of_retries="1" name="FollowPathRecovery">
+          <FollowPath path="{path}" controller_id="{selected_controller}" error_code_id="{follow_path_error_code}"/>
+          <ClearEntireCostmap name="ClearLocalCostmap-Context" service_name="local_costmap/clear_entirely_local_costmap"/>
+        </RecoveryNode>
+      </Sequence>
+      
+      <SequenceStar name="RecoverySequence">
+        <!-- 选择恢复行为 -->
+        <Selector name="RecoverySelector" error_code_id="{follow_path_error_code}">
+          <!-- 智能脱困 -->
+          <SmartEscape 
+            name="SmartEscape"
+            server_name="smart_escape"
+            server_timeout="10000"
+            escape_pose="{escape_pose}"
+            result_message="{escape_result_msg}"/>
+          
+          <!-- 传统恢复行为 -->
+          <Sequence name="TraditionalRecovery">
+            <ClearEntireCostmap name="ClearLocalCostmap" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <ClearEntireCostmap name="ClearGlobalCostmap" service_name="global_costmap/clear_entirely_global_costmap"/>
+            <Spin spin_dist="1.57" error_code_id="{spin_error_code}"/>
+            <Wait wait_duration="1.0"/>
+            <BackUp backup_dist="0.3" backup_speed="0.1" error_code_id="{backup_error_code}"/>
+          </Sequence>
+        </Selector>
+      </SequenceStar>
+    </RecoveryNode>
+  </BehaviorTree>
+
+  <!-- 简化的智能脱困行为树（仅用于测试） -->
+  <BehaviorTree ID="SmartEscapeOnly">
+    <Sequence name="EscapeSequence">
+      <SmartEscape 
+        name="SmartEscapeTest"
+        server_name="smart_escape"
+        server_timeout="10000"
+        escape_pose="{escape_pose}"
+        result_message="{escape_result_msg}"/>
+      <ComputePathToPose goal="{escape_pose}" path="{path}" planner_id="GridBased"/>
+      <FollowPath path="{path}" controller_id="FollowPath"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- 带重试的完整导航行为树 -->
+  <BehaviorTree ID="NavigateWithRetry">
+    <RecoveryNode number_of_retries="3" name="MainRecovery">
+      <Sequence name="MainSequence">
+        <!-- 设置初始状态 -->
+        <SetBlackboard output_key="{retry_count}" value="0"/>
+        
+        <!-- 导航主循环 -->
+        <Repeat num_cycles="3">
+          <Sequence name="NavigationAttempt">
+            <!-- 尝试导航 -->
+            <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+            <FollowPath path="{path}" controller_id="FollowPath"/>
+          </Sequence>
+        </Repeat>
+      </Sequence>
+      
+      <!-- 恢复行为 -->
+      <SequenceStar name="RecoveryActions">
+        <!-- 智能脱困优先 -->
+        <Fallback name="EscapeFallback">
+          <Sequence name="SmartEscapeSequence">
+            <SmartEscape 
+              name="SmartEscapeAction"
+              server_name="smart_escape"
+              server_timeout="10000"
+              escape_pose="{escape_pose}"
+              result_message="{escape_result_msg}"/>
+            <ComputePathToPose goal="{escape_pose}" path="{escape_path}" planner_id="GridBased"/>
+            <FollowPath path="{escape_path}" controller_id="FollowPath"/>
+          </Sequence>
+          
+          <!-- 传统恢复 -->
+          <Sequence name="TraditionalRecovery">
+            <ClearEntireCostmap name="ClearLocalCostmap" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <Spin spin_dist="1.57"/>
+            <BackUp backup_dist="0.3" backup_speed="0.1"/>
+          </Sequence>
+        </Fallback>
+      </SequenceStar>
+    </RecoveryNode>
+  </BehaviorTree>
+
+  <!-- TreeToDot -->
+  <TreeNodesModel>
+    <Action ID="SmartEscape">
+      <input_port name="server_name" default="smart_escape">Action server name</input_port>
+      <input_port name="server_timeout" default="10000">Server timeout in ms</input_port>
+      <output_port name="escape_pose">Computed escape pose</output_port>
+      <output_port name="result_message">Result message</output_port>
+    </Action>
+  </TreeNodesModel>
+</root>

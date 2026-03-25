@@ -1,0 +1,47 @@
+<launch>
+  <node pkg="terrain_analysis" exec="terrainAnalysis" name="terrainAnalysis" output="screen">
+    <remap from="/registered_scan" to="/cloud_registered"/>
+    <remap from="/state_estimation" to="/odom"/>
+    <remap from="/terrain_map" to="/segmentation/obstacle"/>
+
+    <param name="map_frame" value="odom"/>
+    
+    <param name="scanVoxelSize" value="0.08" />
+    <param name="decayTime" value="0.5" />
+    <param name="noDecayDis" value="0.0" />
+    <param name="clearingDis" value="0.0" />
+    
+    <param name="useSorting" value="true" /> 
+    <param name="quantileZ" value="0.4" /> 
+    <param name="considerDrop" value="false" />
+    <param name="limitGroundLift" value="false" /> 
+    <param name="maxGroundLift" value="0.25" />
+
+    <param name="clearDyObs" value="true" />
+    <param name="minDyObsDis" value="0.1" />
+    <param name="minDyObsAngle" value="0.0" />
+    <param name="minDyObsRelZ" value="-0.5" />
+    <param name="minDyObsVFOV" value="-16.0" />
+    <param name="maxDyObsVFOV" value="16.0" />
+    <param name="minDyObsPointNum" value="10" />
+
+    <param name="noDataObstacle" value="false" />
+    <param name="noDataBlockSkipNum" value="0" />
+    <param name="minBlockPointNum" value="1" />
+    
+    <param name="vehicleHeight" value="0.45" /> 
+    
+    <param name="sensorOffsetX" value="0.0" />
+    <param name="sensorOffsetY" value="0.0" />
+    
+    <param name="vehicleLength" value="0.7" /> 
+    <param name="vehicleWidth" value="0.7" />
+    
+    <param name="voxelPointUpdateThre" value="100" />
+    <param name="voxelTimeUpdateThre" value="2.0" />
+    
+    <param name="minRelZ" value="-0.8" />
+    <param name="maxRelZ" value="0.8" />
+    <param name="disRatioZ" value="0.2" />
+  </node>
+</launch>
