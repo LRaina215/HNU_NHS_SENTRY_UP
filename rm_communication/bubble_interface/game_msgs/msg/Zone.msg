@@ -1,0 +1,16 @@
+int8 f1_zone_status
+int8 f1_zone_buff_debuff_status
+int8 f2_zone_status
+int8 f2_zone_buff_debuff_status
+int8 f3_zone_status
+int8 f3_zone_buff_debuff_status
+int8 f4_zone_status
+int8 f4_zone_buff_debuff_status
+int8 f5_zone_status
+int8 f5_zone_buff_debuff_status
+int8 f6_zone_status
+int8 f6_zone_buff_debuff_status
+int8 red1_bullet_left
+int8 red2_bullet_left
+int8 blue1_bullet_left
+int8 blue2_bullet_left

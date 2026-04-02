@@ -1,0 +1,30 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/hr/ros2-master/install/armor_processor/include/**",
+        "/home/hr/ros2-master/install/rmoss_projectile_motion/include/**",
+        "/home/hr/ros2-master/install/rmctrl_msgs/include/**",
+        "/home/hr/ros2-master/install/game_msgs/include/**",
+        "/home/hr/ros2-master/install/bboxes_ex_msgs/include/**",
+        "/home/hr/ros2-master/install/armor_detector/include/**",
+        "/home/hr/ros2-master/install/auto_aim_interfaces/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/hr/ros2-master/src/armor_detector/include/**",
+        "/home/hr/ros2-master/src/armor_processor/include/**",
+        "/home/hr/ros2-master/src/rmoss_projectile_motion/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

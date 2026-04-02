@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="sentry"
+  xmlns:xacro="http://ros.org/wiki/xacro">
+ 
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.4 0.4 0.2"/> 
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.4 0.4 0.2"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <mass value="15.0"/> <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.2"/>
+    </inertial>
+  </link>
+
+  <link name="base_footprint"/>
+  
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="base_link" />
+  </joint>
+  
+  <link name="livox_frame"/>
+  
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="0 0 0.45" rpy="3.14159 0 0" />
+    <parent link="base_link" />
+    <child link="livox_frame" />
+    <axis xyz="0 0 0"/>
+  </joint>
+ 
+</robot>

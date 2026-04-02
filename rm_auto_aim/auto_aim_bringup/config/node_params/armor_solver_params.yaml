@@ -1,0 +1,70 @@
+/**:
+  ros__parameters:
+    debug: false 
+    target_frame: gimbal_odom
+    max_armor_distance: 10.0
+
+    ekf:
+      #sigma2_q_x: 0.05
+      #sigma2_q_y: 0.05
+      #sigma2_q_z: 0.05
+      #sigma2_q_yaw: 0.001
+      #sigma2_q_r: 80.0
+      # --- 过程噪声 Q (Process Noise) ---
+      # 增大 x, y, z 的噪声，允许车辆急加速/平移
+      sigma2_q_x: 2.0   # 原 0.05 -> 改为 20.0 (响应平移)
+      sigma2_q_y: 2.0   # 原 0.05 -> 改为 20.0 (响应平移)
+      sigma2_q_z: 1.0    # 原 0.05 -> 改为 20.0 (响应高低变化)
+
+      # 增大 yaw 的噪声，允许车辆变速旋转
+      sigma2_q_yaw: 50.0  # 原 0.001 -> 改为 100.0 (响应 v_yaw 变化)
+
+      # 极度减小 r (半径) 的噪声，锁死半径，消除抖动
+      sigma2_q_r: 100.0   # 注意：这里如果是 rm_vision 标准代码，
+                          # 有些版本 r 代表 YawRate(v_yaw) 的导数，有些代表 Radius。
+                          # 如果是半径(Radius)，应设为 0.01 (很小)。
+                          # 如果是角加速度(Alpha)，应设为大值。
+                          # 根据你之前 80.0 的设定和 rm_vision 的常见配置（通常是 80-100 用于角速度变化），
+                          # 我怀疑你这里 80.0 其实是对的（作为角加速度），但配合 0.001 的 yaw 导致了模型冲突。
+                          # 建议方案：先按下面的均衡配置试一下。
+
+      #r_x: 4e-4
+      #r_y: 4e-4
+      #r_z: 9e-4
+      #r_yaw: 5e-3
+      # --- 观测噪声 R (Measurement Noise) ---
+      # 稍微增大一点观测噪声，不要太迷信相机（防抖）
+      r_x: 0.01   # 原 4e-4 太小了，容易过敏
+      r_y: 0.01   # 原 4e-4
+      r_z: 0.05   # 原 9e-4
+      r_yaw: 0.005 # 原 5e-3
+
+    tracker:
+      max_match_distance: 0.5
+      max_match_yaw_diff: 0.5
+
+      tracking_thres: 2
+      lost_time_thres: 1.0
+    
+    solver:
+      prediction_delay: 0.025
+      controller_delay: 0.005
+      max_tracking_v_yaw: 6.0 #转速(rad/s)大于这个值时瞄准机器人中心 
+      side_angle: 20.0 
+      bullet_speed: 25.0
+      compenstator_type: "resistance"
+      gravity: 9.7986
+      resistance: 0.019
+      iteration_times: 20 # 补偿的迭代次数
+      # ["距离下限, 距离上限, 高度下限, 高度下限, pitch轴补偿值"]
+      angle_offset: [            
+        "5.0 6.0 -1.0 0.4 0.0",
+        "5.0 6.0  0.4 0.8 0.0",
+        "5.0 6.0  0.8 1.2 0.0",
+        "6.0 7.0 -1.0 0.4 0.0",
+        "6.0 7.0  0.4 0.8 0.0",
+        "6.0 7.0  0.8 1.2 0.0",
+        "7.0 8.0 -1.0 0.4 0.0",
+        "7.0 8.0  0.4 0.8 0.0",
+        "7.0 8.0  0.8 1.2 0.0",
+      ]

@@ -1,0 +1,106 @@
+Info    2026-01-22 15:12:47  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:12:47  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:12:47  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:12:47  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:12:48  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1003)     Description:U3V RecvThread Start     Solution:
+Info    2026-01-22 15:12:48  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DeviceControl.cpp-L1275)     Description:AcquisitionStart Execute Success     Solution:
+Info    2026-01-22 15:13:11  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:13:11  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:13:11  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:13:11  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:13:13  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1003)     Description:U3V RecvThread Start     Solution:
+Info    2026-01-22 15:13:13  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DeviceControl.cpp-L1275)     Description:AcquisitionStart Execute Success     Solution:
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L0844)     Description:[GetOneFrame] PreFrameNum[6696], CurFrameNum[6698]     Solution:
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L0844)     Description:[GetOneFrame] PreFrameNum[6699], CurFrameNum[6701]     Solution:
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L0844)     Description:[GetOneFrame] PreFrameNum[6702], CurFrameNum[6704]     Solution:
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L0844)     Description:[GetOneFrame] PreFrameNum[6704], CurFrameNum[6710]     Solution:
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:14:27  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L0844)     Description:[GetOneFrame] PreFrameNum[6710], CurFrameNum[6713]     Solution:
+Info    2026-01-22 15:14:33  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:14:33  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:14:33  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:14:33  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:14:35  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1003)     Description:U3V RecvThread Start     Solution:
+Info    2026-01-22 15:14:35  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DeviceControl.cpp-L1275)     Description:AcquisitionStart Execute Success     Solution:
+Info    2026-01-22 15:15:40  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:15:40  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:15:40  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:15:40  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1003)     Description:U3V RecvThread Start     Solution:
+Info    2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DeviceControl.cpp-L1275)     Description:AcquisitionStart Execute Success     Solution:
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:41  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1426)     Description:Delete one DataNode     Solution:Please confirm that there is a blocking operation when you grab frame
+Warning 2026-01-22 15:15:42  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L0844)     Description:[GetOneFrame] PreFrameNum[2], CurFrameNum[31]     Solution:
+Info    2026-01-22 15:28:18  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:28:18  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:28:18  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:28:18  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:28:19  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1003)     Description:U3V RecvThread Start     Solution:
+Info    2026-01-22 15:28:19  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DeviceControl.cpp-L1275)     Description:AcquisitionStart Execute Success     Solution:
+Info    2026-01-22 15:28:52  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:28:52  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:28:52  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:28:52  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:28:54  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1003)     Description:U3V RecvThread Start     Solution:
+Info    2026-01-22 15:28:54  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DeviceControl.cpp-L1275)     Description:AcquisitionStart Execute Success     Solution:
+Info    2026-01-22 15:29:20  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:29:20  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:29:20  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:29:20  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:29:22  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1003)     Description:U3V RecvThread Start     Solution:
+Info    2026-01-22 15:29:22  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DeviceControl.cpp-L1275)     Description:AcquisitionStart Execute Success     Solution:
+Info    2026-01-22 15:29:52  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:29:52  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:29:52  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:29:52  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:29:54  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1003)     Description:U3V RecvThread Start     Solution:
+Info    2026-01-22 15:29:54  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DeviceControl.cpp-L1275)     Description:AcquisitionStart Execute Success     Solution:
+Info    2026-01-22 15:30:19  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:30:19  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:30:19  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:30:19  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:31:54  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:31:54  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:31:54  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:31:54  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:
+Info    2026-01-22 15:31:55  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(StreamProcess.cpp-L1003)     Description:U3V RecvThread Start     Solution:
+Info    2026-01-22 15:31:55  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DeviceControl.cpp-L1275)     Description:AcquisitionStart Execute Success     Solution:
+Info    2026-01-22 15:32:00  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0097)     Description:Current dynamic library path[/home/rm/shaobing/install/hik_camera/lib/libMvUsb3vTL.so]     Solution:
+Info    2026-01-22 15:32:00  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0100)     Description:U3V_Version: 3.2.1.0     Solution:
+Info    2026-01-22 15:32:00  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(Manager.cpp-L0101)     Description:U3V_Description: BaseLine Build 20211203     Solution:
+Info    2026-01-22 15:32:00  DevID:MV-CA020-10UC(G42213714)  Source-Line:libMvUsb3vTL.so(DriverLayer.cpp-L0419)     Description:device speed: [0x4]     Solution:

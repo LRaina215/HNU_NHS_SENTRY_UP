@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/humble/include/**",
+        "/media/hr/76E8-CACF/ros2-master/src/armor_detector/include/**",
+        "/media/hr/76E8-CACF/ros2-master/src/armor_processor/include/**",
+        "/media/hr/76E8-CACF/ros2-master/src/rmoss_projectile_motion/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

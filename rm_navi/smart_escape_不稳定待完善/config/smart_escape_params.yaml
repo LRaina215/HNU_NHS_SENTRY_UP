@@ -1,0 +1,29 @@
+# 智能脱困系统参数配置
+# 基于四川大学火锅战队2025年哨兵导航算法
+
+smart_escape_server:
+  ros__parameters:
+    # 参考坐标系
+    global_frame: map
+    robot_base_frame: base_link
+    
+    # 搜索半径参数（单位：米）
+    initial_radius: 0.5        # 初始搜索半径
+    max_radius: 2.0            # 最大搜索半径
+    radius_increment: 0.3      # 半径增量（每次扩大的步长）
+    
+    # 脱困参数
+    min_free_cells_threshold: 10   # 最小无障碍栅格阈值
+    escape_distance: 0.6           # 脱困移动距离（朝向质心移动的距离）
+    
+    # TF参数
+    transform_tolerance: 0.1
+    
+    # 调试
+    use_sim_time: false
+
+bt_smart_escape_node:
+  ros__parameters:
+    # 行为树节点参数
+    server_name: smart_escape
+    server_timeout: 10000      # 服务器超时时间（毫秒）

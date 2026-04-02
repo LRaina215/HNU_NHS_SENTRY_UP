@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="sentry_sim" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="xyz" default="0.10 0 -0.20" />
+  <xacro:arg name="rpy" default="-3.14 0 0" />
+
+  <xacro:include filename="infantry.urdf.xacro" />
+  
+  <xacro:include filename="rm_gimbal.urdf.xacro" />
+
+  <joint name="chassis_to_gimbal" type="fixed">
+    <parent link="base_link" />
+    <child link="gimbal_odom" />
+    <origin xyz="0 0 0.3" rpy="0 0 0" /> 
+  </joint>
+
+  <xacro:include filename="$(find ros2_livox_simulation)/urdf/mid360.xacro" />
+  <xacro:mid360 name="livox_sim" parent="base_link" topic="livox/lidar">
+    <origin xyz="0 0 0.15" rpy="0 0 -1.57"/> 
+  </xacro:mid360>
+
+  <gazebo>
+    <plugin name="sentry_base_controller" filename="libgazebo_ros_planar_move.so">
+      <ros>
+        <remapping>cmd_vel:=cmd_vel</remapping>
+        <remapping>odom:=gazebo_odom</remapping>
+      </ros>
+      <update_rate>100</update_rate>
+      <publish_rate>100</publish_rate>
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>false</publish_odom_tf>
+      <odometry_frame>gazebo_odom</odometry_frame>
+      <robot_base_frame>base_footprint</robot_base_frame>
+      <cov_x>0.0001</cov_x>
+      <cov_y>0.0001</cov_y>
+      <cov_yaw>0.01</cov_yaw>
+    </plugin>
+  </gazebo>
+  
+</robot>

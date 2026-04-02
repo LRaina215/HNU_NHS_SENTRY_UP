@@ -1,0 +1,68 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+      
+      <PipelineSequence name="NavigateWithReplanning">
+        <RateController hz="1.0">
+          <RecoveryNode number_of_retries="1" name="ComputePathThroughPoses">
+            <ReactiveSequence>
+              <RemovePassedGoals input_goals="{goals}" output_goals="{goals}" radius="1.0"/>
+              <ComputePathThroughPoses goals="{goals}" path="{path}" planner_id="GridBased"/>
+            </ReactiveSequence>
+            <ReactiveFallback name="ComputePathThroughPosesRecoveryFallback">
+              <GoalUpdated/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Context" service_name="global_costmap/clear_entirely_global_costmap"/>
+            </ReactiveFallback>
+          </RecoveryNode>
+        </RateController>
+        <FollowPath path="{path}" controller_id="FollowPath"/>
+      </PipelineSequence>
+      
+      <ReactiveFallback name="RecoveryFallback">
+        <GoalUpdated/>
+        
+        <ReactiveFallback name="RecoveryActions">
+          
+          <Sequence name="SmartEscapeSequence">
+            <SmartEscape name="SmartEscapeAction" 
+                         server_name="smart_escape" 
+                         server_timeout="15.0" 
+                         escape_pose="{escape_pose}"
+                         result_message="{escape_result}"/>
+            
+            <ClearEntireCostmap name="ClearLocalBeforeNav" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <ClearEntireCostmap name="ClearGlobalBeforeNav" service_name="global_costmap/clear_entirely_global_costmap"/>
+            
+            <Wait wait_duration="0.5"/>
+          </Sequence>
+
+          <Sequence name="ClearingActions">
+            <ClearEntireCostmap name="ClearLocalCostmap-Subtree" service_name="local_costmap/clear_entirely_local_costmap"/>
+            <ClearEntireCostmap name="ClearGlobalCostmap-Subtree" service_name="global_costmap/clear_entirely_global_costmap"/>
+            <Wait wait_duration="1.0"/>
+          </Sequence>
+          
+        </ReactiveFallback>
+      </ReactiveFallback>
+    </RecoveryNode>
+  </BehaviorTree>
+
+  <TreeNodesModel>
+    <Action ID="SmartEscape">
+      <input_port name="server_name" default="smart_escape">Action server name</input_port>
+      <input_port name="server_timeout" default="15.0">Server timeout in seconds</input_port>
+      <output_port name="escape_pose">Computed escape pose</output_port>
+      <output_port name="result_message">Result message</output_port>
+    </Action>
+    <Action ID="RemovePassedGoals">
+      <input_port name="input_goals">Input goals to remove passed ones from</input_port>
+      <input_port name="output_goals">Output goals after removing passed ones</input_port>
+      <input_port name="radius">Radius tolerance for passing a goal</input_port>
+    </Action>
+    <Action ID="ComputePathThroughPoses">
+      <input_port name="goals">Destinations to plan to</input_port>
+      <input_port name="path">Path created by ComputePathToPose</input_port>
+      <input_port name="planner_id"/>
+    </Action>
+  </TreeNodesModel>
+</root>

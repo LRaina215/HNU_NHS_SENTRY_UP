@@ -1,0 +1,22 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/hr/ros2-master/install/rmctrl_msgs/local/lib/python3.10/dist-packages",
+        "/home/hr/ros2-master/install/game_msgs/local/lib/python3.10/dist-packages",
+        "/home/hr/ros2-master/install/bubble_protocol/lib/python3.10/site-packages",
+        "/home/hr/ros2-master/install/bubble_decision/lib/python3.10/site-packages",
+        "/home/hr/ros2-master/install/bboxes_ex_msgs/local/lib/python3.10/dist-packages",
+        "/home/hr/ros2-master/install/auto_aim_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/hr/ros2-master/install/rmctrl_msgs/local/lib/python3.10/dist-packages",
+        "/home/hr/ros2-master/install/game_msgs/local/lib/python3.10/dist-packages",
+        "/home/hr/ros2-master/install/bubble_protocol/lib/python3.10/site-packages",
+        "/home/hr/ros2-master/install/bubble_decision/lib/python3.10/site-packages",
+        "/home/hr/ros2-master/install/bboxes_ex_msgs/local/lib/python3.10/dist-packages",
+        "/home/hr/ros2-master/install/auto_aim_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

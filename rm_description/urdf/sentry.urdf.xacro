@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="sentry" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <link name="base_link" />
+
+  <link name="base_footprint" />
+
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint" />
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="livox_frame"/>
+
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="livox_frame" />
+    <origin xyz="0 0 0 " rpy="0 0 0" />
+  </joint>
+
+  <joint name="chassis_to_gimbal" type="fixed">
+    <parent link="base_link" />      
+    <child link="gimbal_link" />     
+    <origin xyz="0 0 0.15" rpy="0 0 0" /> 
+  </joint>
+
+</robot>
