@@ -1,116 +1,394 @@
-## DHZZB_Version 哨兵自瞄2.0
+# HNU_NHS_SENTRY_UP-down
 
-**自瞄代码修改日志**
+本仓库是一个面向 RoboMaster 哨兵机器人联调的 ROS 2 工作空间，当前代码已经把自瞄、串口通信、导航建图、机器人描述、战术决策和行为树“上/下位机”逻辑整合到了同一套工程里。
 
-**基于 【RM2024-自瞄开源】天津大学北洋机甲-自瞄系统&OpenRM 算法库开源**  **对当前自瞄节点继续初步优化尝试**
+从当前源码来看，它更像一套“比赛联调工作空间”而不是单一功能包：既包含可直接运行的主链路，也保留了若干实验模块、第三方移植包、日志文件、示意资源和调试脚本。
 
-#### 1. 优化：数字识别启用 GPU 批处理 (Batching)
+## 1. 工作空间概览
 
-- **问题：** `armor_detector_node` 中，`std::execution::par` (CPU并行) 在 `for` 循环中调用 `classify`。但 `classify` 内部的 `std::mutex` 导致 GPU 推理被**串行**执行，性能低下。
-- **优化：**
-  1. `std::execution::par` 循环现在只负责 CPU 密集型任务 (如 `extractNumber`)。
-  2. 添加了新的 `classify_batch(armors)` 函数，在循环**之后**被调用。
-  3. 此函数将所有数字图像打包，**一次性**发送给 GPU 进行并行批处理。
-- **收益：** 极大提升了多目标识别时的 GPU 利用率和帧率。
-- **控制：** 通过 `CMakeLists.txt` 中的 `ENABLE_GPU_BATCHING` 宏来启停此功能。
+当前工作空间的核心目标是服务一台哨兵机器人，形成如下闭环：
 
-​	**如果你以后想关闭它进行对比测试，不需要改代码，只需要在编译时输入： `colcon build --cmake-args -DENABLE_GPU_BATCHING=OFF`**
+- 自瞄链路：工业相机取流 -> 装甲板识别 -> 跟踪/弹道解算 -> 云台控制指令下发
+- 通信链路：板间串口收发 -> ROS 话题发布/订阅 -> TF、里程计、裁判系统状态同步
+- 导航链路：Livox 点云 -> 车体点云过滤/地面分割 -> 2D LaserScan -> Nav2 定位与导航
+- 决策链路：底层状态与目标信息汇总 -> Python 战术动作层 / C++ 行为树“大脑” -> 姿态与导航目标切换
 
+## 2. 目录结构
 
+```text
+HNU_NHS_SENTRY_UP-down/
+├─ rm_auto_aim/                 自瞄相关包
+│  ├─ armor_detector/           装甲板检测与数字分类
+│  ├─ armor_solver/             EKF 跟踪、目标选择、弹道解算
+│  ├─ rm_vision_ros2_hik_camera/海康工业相机 ROS 2 驱动
+│  ├─ auto_aim_bringup/         轻量自瞄启动入口
+│  ├─ rm_interfaces/            自瞄链路自定义消息/服务
+│  ├─ rm_utils/                 PnP、EKF、日志、弹道等通用工具
+│  ├─ rm_robot_description/     自瞄侧机器人描述
+│  ├─ rm_bringup/               旧版综合 bringup
+│  └─ rmoss_projectile_motion/  弹道模型工具库
+├─ rm_communication/            通信与决策相关包
+│  ├─ bubble_protocol/          串口协议、收发调度、状态发布
+│  ├─ bubble_decision/          哨兵战术决策与动作层
+│  └─ bubble_interface/         game_msgs / rmctrl_msgs / bboxes_ex_msgs
+├─ rm_description/              哨兵整机 URDF、Gazebo 模型、比赛场地 SDF
+├─ rm_navi/                     导航与感知相关包
+│  ├─ rm_driver/livox_ros_driver2/
+│  ├─ rm_localization/          point_lio / icp_registration
+│  ├─ rm_navigation/navi/       SLAM、AMCL、Nav2、RViz 启动与参数
+│  ├─ rm_perception/            地面分割、点云转激光、Terrain Analysis
+│  ├─ rm_lidar_filter/          车体点云过滤
+│  ├─ fake_vel_transform/       全向底盘速度坐标适配
+│  └─ smart_escape_不稳定待完善/ 实验性脱困模块
+├─ rmuc_bt_brain/               C++ 行为树战术“大脑”
+├─ 0308pre.sh / pre.sh          导航预处理与联调脚本
+├─ mapping.sh / map.sh / nav.sh 建图、地图与导航脚本
+├─ game.sh                      综合联调脚本
+├─ decision_uc.sh               C++/Python 决策链启动脚本
+├─ autoaimstart.sh              自瞄看门狗脚本
+├─ frames.gv / frames.pdf       TF 结构快照
+├─ test.pgm / test.yaml         测试地图
+└─ README_OpenCV.md 等          补充说明文档
+```
 
+补充说明：
 
+- `costmap_converter/`、`teb_local_planner/` 目录当前为空，占位但未形成实际源码包。
+- `rm_auto_aim/rm_vision_ros2_hik_camera/build`、`cmake-build-debug`、`MvSdkLog` 等目录属于构建/调试产物，已被保留在工作空间中。
 
-#### 2. 优化：实现迭代解算，提高弹道预测精度(回退)
+## 3. 代码主链路
 
-- **问题：** `Solver::solve` 采用“单次预测”。它基于**当前**位置猜测 `flying_time`，然后预测**未来**位置。这导致“飞行时间”和“未来位置”不匹配（“鸡生蛋”问题）。
+### 3.1 自瞄链路
 
-- **优化：**
-  1. 在 `Solver::solve` 中实现了一个 3 次迭代的 `for` 循环。
-  2. 循环内：a. 基于 `T_guess` 预测未来位置 `P`。 b. 计算击中 `P` 所需的真实飞行时间 `T_new`。 c. 将 `T_new` 作为下一次循环的 `T_guess`。
-  3. 此迭代逻辑已应用于主预测路径。`controller_delay_` 分支遵照要求，保留了“单次预测”逻辑（但也应用了下方的坐标修正）。
-  
-- **收益：** 飞行时间和预测位置收敛到一个精确解，显著提高对移动目标（尤其反陀螺）的瞄准精度。
+核心包：
 
-  
+- `rm_auto_aim/rm_vision_ros2_hik_camera`
+- `rm_auto_aim/armor_detector`
+- `rm_auto_aim/armor_solver`
+- `rm_auto_aim/auto_aim_bringup`
+- `rm_auto_aim/rm_interfaces`
 
+实际数据流：
 
+```text
+hik_camera(image_raw + camera_info)
+  -> armor_detector
+  -> armor_solver
+  -> armor_solver/cmd_gimbal
+  -> bubble_protocol
+  -> MCU / 云台
+```
 
-#### 3. 优化：修复坐标系错误，使用相对向量计算
+当前源码中的关键实现：
 
-- **问题：** 发现一个严重的数学BUG：`calcYawAndPitch`、`getFlyingTime` 和 `selectBestArmor` 等函数都隐式地假设云台（机器人）在 odom 原点 (0,0,0)。
-- **优化：**
-  1. 在 `Solver::solve` 中，首先查询 TF 获取云台的**当前 odom 位置** (`gimbal_pos_odom`)。
-  2. 所有计算（弹道、选甲、Yaw/Pitch）全部修正为使用**相对向量** (`target_vec = future_pos - gimbal_pos_odom`)。
-- **收益：** 解决了“机器人移动后自瞄不准”的根本问题。现在所有计算都是基于云台的**真实**相对位置，数学上完全鲁棒。
+- `hik_camera_node` 使用海康 USB3.0 SDK 枚举设备、设置分辨率/曝光/增益，并发布 `image_raw` 与 `camera_info`
+- `armor_detector` 订阅 `image_raw` 和 `camera_info`，发布 `armor_detector/armors`、调试图像和可视化 marker
+- `armor_detector` 还会订阅 `red_blue_info`，动态切换敌我颜色
+- `armor_solver` 通过 TF 将目标统一到 `gimbal_odom`，做 EKF 跟踪、目标选择和弹道补偿，发布：
+  - `armor_solver/target`
+  - `armor_solver/measurement`
+  - `armor_solver/cmd_gimbal`
+- `auto_aim_bringup/launch/auto_aim.launch.py` 是当前仓库中最直接的自瞄启动入口
 
-#### 4.算法验证模拟器
+### 3.2 通信链路
 
-​	进入at_vision_simulator-master文件后输入cargo run --release -j4运行模拟器
+核心包：
 
-​	此外只需要打开auto_aim_bringup节点
+- `rm_communication/bubble_protocol`
+- `rm_communication/bubble_interface`
 
-​	此外还需打开auto_aim_bringup sim[TAB]节点对自瞄发布信息进行桥接，否则模拟器无法读取自瞄转动角度
+当前 `bubble_protocol` 的职责不是单纯串口驱动，而是“ROS <-> 串口板间协议”的调度层：
 
+- 订阅：
+  - `armor_solver/cmd_gimbal`
+  - `/cmd_vel`
+  - `/manual/sentry_posture`
+  - `serial/receive`
+- 下发到串口：
+  - 云台控制
+  - 底盘控制
+  - 发射控制
+  - 哨兵姿态切换
+- 从串口回传并发布：
+  - `/joint_states`
+  - `/odom`
+  - `/imu`
+  - `/status/barrel`
+  - `/status/game`
+  - `/status/zone`
+  - `/status/robotHP`
+  - `/status/sentry_posture_feedback`
 
+`rm_communication/bubble_interface` 提供了三类接口包：
 
-#### 5.FoxGlove可视化调试工具
+- `game_msgs`：裁判系统相关消息
+- `rmctrl_msgs`：底盘/云台/射击控制消息
+- `bboxes_ex_msgs`：扩展目标框消息
 
-​	常用命令一览.md中有介绍。
+### 3.3 导航与建图链路
 
-​	使用` ros2 launch auto_aim_bringup foxglove.launch.py ` 启动
+核心包：
 
+- `rm_navi/rm_driver/livox_ros_driver2`
+- `rm_navi/rm_lidar_filter`
+- `rm_navi/rm_perception/linefit_ground_segementation_ros2`
+- `rm_navi/rm_perception/pointcloud_to_laserscan`
+- `rm_navi/rm_localization/point_lio`
+- `rm_navi/rm_localization/icp_registration`
+- `rm_navi/rm_navigation/navi`
+- `rm_navi/fake_vel_transform`
 
+当前主流程可概括为：
 
-#### 6. 代码重构：移除硬编码内参，适配 ROS 2 标准 CameraInfo (2025-12-21) 
+```text
+Livox点云
+  -> rm_lidar_filter              去车体点云
+  -> linefit_ground_segmentation  地面/障碍分割
+  -> pointcloud_to_laserscan      转 /scan
+  -> Nav2(localization/navigation)
+```
 
-- **问题 (Hardcoded Intrinsics)：**  之前的版本中，相机内参矩阵 ($K$) 和畸变系数 ($D$) 被硬编码在 `armor_detector` 的源码中。这导致每当调整相机焦距、更换镜头或修改分辨率时，都必须手动修改 C++ 代码并重新编译，极不灵活且容易出错。 
-- **优化 (Auto-Subscription)：**
+并行的定位/建图链路：
 
-1. 在 `ArmorDetectorNode` 初始化逻辑中，删除了硬编码的 `cv::Mat` 参数。  
+```text
+Livox点云 + IMU
+  -> point_lio
+  -> /odom
+  -> odom_to_base_node.py
+  -> /odom_base
+  -> Nav2 controller/amcl
+```
 
-2. 新增了对标准话题 `camera_info` 的订阅。  
+当前导航栈特征：
 
-3. 重构了 PnP 解算器的初始化流程：节点启动后会等待相机驱动发布 `sensor_msgs::msg::CameraInfo`，一旦接收到内参，自动更新 PnP Solver 的参数。 - **收益：**  实现了算法与硬件的**完全解耦**。现在调整相机参数只需修改相机驱动的 `.yaml` 配置文件，无需触碰自瞄核心代码，也无需重新编译。  
+- `navi/launch/slam_launch.py`：SLAM Toolbox 建图
+- `navi/launch/localization_launch.py`：地图服务器 + AMCL
+- `navi/launch/navigation_launch.py`：Nav2 控制、规划、恢复、BT Navigator
+- `navi/launch/rviz_launch.py`：RViz
+- `navi/params/nav2_params.yaml`：
+  - `planner_server` 默认使用 `nav2_theta_star_planner/ThetaStarPlanner`
+  - `controller_server` 默认使用 `DWBLocalPlanner`
+  - `robot_base_frame` 以 `base_link` 为主
+  - 局部与全局 costmap 均以 `/scan` 为主要障碍输入
+- `fake_vel_transform` 用于将 Nav2 输出速度从“虚拟不旋转底盘系”转换回真实底盘坐标系，适配高频旋转或全向运动底盘
+- `icp_registration` 读取 PCD 地图并发布 `map -> odom`，作为补充定位方案
 
+### 3.4 决策链路
 
+当前仓库里其实有两套相关逻辑同时存在：
 
-#### 7. 维护：解决 OpenCV 多版本冲突导致的崩溃 
+#### A. `bubble_decision` 的战术动作层
 
-- **故障现象：**  开发机同时存在 OpenCV 4.2.0 (System) 和 4.5.4 (Local)。`ros2 launch` 时 `armor_solver` 因链接错误版本导致 `Segmentation Fault (Exit -11)`。
+主要包含：
 
-- **修复方案：**  在 `CMakeLists.txt` 中强制指定 `OpenCV_DIR` 为 4.5.4 路径，并清理缓存重新编译，解决了版本冲突。（vision_opencv、image_common、image_transport_plugins为新增包，上nuc时可以去掉）
+- `decision.py`
+- `gameAction.py`
+- `rmuc_body.py`
+- `rmuc_action.py`
+- `rmuc_decision.py`
 
-  
+其中当前更值得关注的是：
 
-#### 8. 稳定性优化：移除预处理阶段的 CPU 并行 (2025-12-21) （没有完全移除，两种代码都进行了保留）
+- `gameAction.py` 中的 `SentryGameAction`
+  - 根据血量、目标距离、当前位置等信息执行“守中、回补、切姿态”等动作
+  - 直接对接 `/navigate_to_pose`
+- `rmuc_body.py`
+  - 更像 Python 动作执行层
+  - 汇总黑板数据到 `/sentry/blackboard_data`
+  - 接收 C++ 大脑发来的 `/sentry/tactic_cmd`
+  - 管理 `/manual/sentry_posture`
+  - 处理人工接管状态 `/sentry/human_override`
 
-- **背景：** 在引入 GPU Batching 时，为了追求极致性能，曾尝试使用 `std::execution::par` 对装甲板的预处理（如 `extractNumber` 提取数字图、`correctCorners` 角点修正）进行 CPU 多线程并行。
+#### B. `rmuc_bt_brain` 的 C++ 行为树大脑
 
-- **问题：** 经过调试发现，这些预处理操作计算量极小（"极其轻量"），但频繁开启多线程引入了**线程安全隐患**和额外的上下文切换开销，导致程序偶发不稳定。 
+该包通过 BehaviorTree.CPP 实现一个轻量战术决策树：
 
-- **调整：** - 移除了 `std::execution::par`，回退为普通的串行 `std::for_each` 循环。  
+- 订阅 `/sentry/blackboard_data`
+- 订阅 `/sentry/human_override`
+- 发布 `/sentry/tactic_cmd`
 
-  **保留了 GPU Batching**：仅将这部分可以安全并行的、计算密集的推理任务交给 GPU 批量处理。 
+当前 `tree.xml` 的战术逻辑非常直接：
 
-  **结论：** "串行预处理 + 并行推理" 的组合在保证程序绝对稳定的前提下，依然维持了极高的识别帧率。
+- 人工接管 -> `OVERRIDE_IDLE`
+- 低血量 -> `DEFEND`
+- 有敌人且距离近 -> `MELEE`
+- 有敌人且距离远 -> `PURSUIT`
+- 其他情况 -> `PATROL`
 
+这意味着当前仓库的战术架构是：
 
+```text
+通信/导航/自瞄状态
+  -> Python动作层汇总黑板
+  -> C++ BT大脑做战术判断
+  -> Python动作层执行姿态切换与导航目标下发
+```
 
-#### 9.自收发优化： 解决通信层中IMU数据的自收发问题
+### 3.5 机器人描述与仿真
 
-- 问题：Hardware.py中存在发布IMU数据的发布者，而Dispatch.py中直接创建了订阅者订阅该IMU数据，导致自瞄延迟升高。
+核心包：
 
-- 解决：Dispatch.py中注释订阅函数，需要使用IMU数据时直接跨py文件读取。
+- `rm_description`
+- `rm_auto_aim/rm_robot_description`
 
+其中：
 
+- `rm_description` 更偏向“当前整机联调版本”
+  - `launch/model.launch.py` 同时发布导航侧和自瞄侧 robot_state_publisher
+  - `launch/sim_bringup.launch.py` 可加载 Gazebo 世界与模型
+  - `models/`、`world/` 中保存了 RMUC/RMUL 2024/2025 相关场地与模型资源
+- `rm_robot_description` 更偏向自瞄模块继承来的描述包
 
-#### 10.通信整合：整合自瞄和导航下发数据包
+## 4. 自定义接口
 
-- 目的：只使用一个NUC与C板通信。
-- 方案：整合sentry_up与sentry_down的launch文件为一个sentry_launch，并合并sentry_up与sentry_down为一个sentry。同一个数据包同时下发底盘、云台、开火数据。
+### 4.1 `rm_auto_aim/rm_interfaces`
 
-#### 11.功能包整合：rm_description优化合并
+当前使用最频繁的消息/服务包括：
 
-**代码仓库:** git@github.com:LRaina215/HNU_NHS_BBG.git  or https://github.com/LRaina215/HNU_NHS_BBG.git 
+- `Armors.msg`
+- `Armor.msg`
+- `Target.msg`
+- `GimbalCmd.msg`
+- `Measurement.msg`
+- `SerialReceiveData.msg`
+- `SetMode.srv`
 
- 
+### 4.2 `rm_communication/bubble_interface`
+
+- `game_msgs`
+  - `GameStatus.msg`
+  - `RobotHP.msg`
+  - `Zone.msg`
+- `rmctrl_msgs`
+  - `Chassis.msg`
+  - `Gimbal.msg`
+  - `Shooter.msg`
+  - `Odom.msg`
+
+## 5. 典型启动方式
+
+### 5.1 直接使用根目录脚本
+
+当前仓库保留了多份 Linux + GNOME 终端脚本，适合现场联调：
+
+- `mapping.sh`
+  - 启动 Livox 驱动与 Point-LIO
+- `map.sh`
+  - 启动 SLAM Toolbox 与 RViz，用于建图
+- `nav.sh`
+  - 启动定位、导航与 RViz
+- `pre.sh` / `0308pre.sh`
+  - 启动导航前置链路，如点云过滤、地面分割、点云转激光、Point-LIO
+- `game.sh`
+  - 综合启动导航/决策/定位相关节点
+- `decision_uc.sh`
+  - 启动 `rmuc_body` 与 `bt_brain_node`
+- `autoaimstart.sh`
+  - 自瞄链路看门狗，自动拉起相机、描述、解算与通信节点
+
+### 5.2 直接使用 `ros2 launch`
+
+常见入口如下：
+
+```bash
+ros2 launch hik_camera hik_camera.launch.py
+ros2 launch auto_aim_bringup auto_aim.launch.py
+ros2 launch bubble_protocol sentry_launch.py
+ros2 launch point_lio mapping_mid360.launch.py
+ros2 launch icp_registration icp.launch.py
+ros2 launch navi slam_launch.py
+ros2 launch navi localization_launch.py
+ros2 launch navi navigation_launch.py
+ros2 launch navi rviz_launch.py
+ros2 launch rm_description model.launch.py
+```
+
+## 6. 构建与运行环境
+
+从当前代码和脚本判断，本工作空间主要面向以下环境：
+
+- Ubuntu Linux
+- ROS 2 Galactic
+- Bash + `gnome-terminal`
+- Livox MID360 / Livox ROS 2 驱动
+- 海康 USB3.0 工业相机 SDK
+
+常规构建方式：
+
+```bash
+source /opt/ros/galactic/setup.bash
+colcon build --symlink-install
+source install/setup.bash
+```
+
+说明：
+
+- 自瞄相机驱动已经在仓库中带有 `hikSDK` 动态库，但实际能否运行仍依赖本机驱动环境
+- 导航依赖 Nav2、SLAM Toolbox、PCL、TF2、RViz 等 ROS 2 组件
+- 工作空间中有较多源码移植包和第三方代码，首次构建前建议先跑 `rosdep install --from-paths . --ignore-src -r -y`
+
+## 7. 当前代码中的重要现实约束
+
+这部分非常重要，因为 README 介绍的是“当前仓库实际状态”，不是理想状态。
+
+### 7.1 存在硬编码绝对路径
+
+当前源码中多处直接写死了类似路径：
+
+- `/home/robomaster/shaobing/install/setup.bash`
+- `/home/robomaster/shaobing/src/...`
+- `/home/robomaster/opencv_4.5.4_local/lib`
+
+受影响位置包括但不限于：
+
+- 根目录多个 `.sh` 启动脚本
+- `auto_aim_bringup/launch/auto_aim.launch.py`
+- `rm_navi/rm_navigation/navi/launch/navigation_launch.py`
+- `rm_navi/rm_navigation/navi/params/nav2_params.yaml`
+- `rm_navi/rm_localization/icp_registration/config/icp.yaml`
+
+如果你在其它机器上使用本仓库，这部分通常需要先修改。
+
+### 7.2 仓库中同时存在“当前主链路”和“实验/备用链路”
+
+例如：
+
+- `smart_escape_不稳定待完善/`：实验性脱困方案，当前默认未在 Nav2 主链中启用
+- `terrain_analysis/`：作为 linefit 方案的替代探索，脚本中保留了切换痕迹
+- `icp_registration/`：补充定位方案，不是所有脚本都会默认启动
+- `rm_bringup/` 与 `auto_aim_bringup/`：存在新旧两套 bringup 风格
+
+### 7.3 仓库中保留了构建产物和日志
+
+例如：
+
+- 海康相机构建目录
+- `MvSdkLog/`
+- 图片、PDF、流程图等调试资源
+
+这些内容对联调排障有帮助，但也说明当前仓库不是“纯净源码包”。
+
+## 8. 推荐阅读顺序
+
+如果你第一次接触这个工作空间，建议按下面顺序看代码：
+
+1. `rm_auto_aim/auto_aim_bringup/launch/auto_aim.launch.py`
+2. `rm_communication/bubble_protocol/bubble_protocol/dispatch.py`
+3. `rm_navi/rm_navigation/navi/launch/*.launch.py`
+4. `rm_navi/rm_navigation/navi/params/nav2_params.yaml`
+5. `rm_communication/bubble_decision/bubble_decision/`
+6. `rmuc_bt_brain/src/bt_brain_node.cpp`
+7. 根目录 `.sh` 启动脚本
+
+这样最容易理解“现场实际怎么跑”。
+
+## 9. 总结
+
+当前 `HNU_NHS_SENTRY_UP-down` 不是单一算法仓库，而是一套面向哨兵机器人联调的 ROS 2 综合工作空间。它的特点是：
+
+- 自瞄、通信、导航、决策都已经接在一起
+- 现场脚本较多，适合快速起系统
+- 代码里带有明显的比赛调参痕迹和机器相关路径
+- 主链路已经可读且相对完整，但仍夹杂实验模块与历史遗留结构
+
+如果你的目标是“理解当前仓库怎么工作”，重点看自瞄、通信、导航和 C++/Python 联合决策这四条主线即可。
